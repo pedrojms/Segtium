@@ -106,6 +106,43 @@ function codeBoton(){
   loadServiciosXml("codigo")
 }
 
+/*function loadServiciosXml(seleccionado){
+    var pg = require(‘pg’);
+    var connectionString = "postgres://djando_windows:1997@PostgreSQL9.4/ip:port/segtiumSA";
+    var pgClient = new pg.Client(connectionString);
+    pgClient.connect();
+    print("connect")
+    var query = pgClient.query("SELECT * from servicio where name ="+seleccionado);
+    query.on("row", function(row,result){
+      result.addRow(row);
+    });
+
+    query.on("end", function(result){
+
+    if(result.rows[0] === undefined){
+
+        return;
+
+    }
+
+    else{
+
+    var id = result.rows[0].id;
+    var nombre=result.rows[0].nombre;
+    var desc=result.rows[0].nombre;
+    var ben=result.rows[0].beneficios;
+
+    addServicio(nombre, desc,ben,ben,ben,ben,"https://via.placeholder.com/250x250</","https://via.placeholder.com/250x250</","https://via.placeholder.com/250x250</","https://via.placeholder.com/250x250</","https://via.placeholder.com/300x300</")
+
+
+    }
+
+    pgClient.end();
+
+  });
+}*/
+
+
 
 function loadServiciosXml(seleccionado) {
   $.ajax({
