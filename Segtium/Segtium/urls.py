@@ -19,6 +19,11 @@ from paginas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index)
+    path('',views.index),
+    path('somos.html',views.somos),
+    path('hacemos.html',views.servicios),
+    path('contactenos.html',views.contacto),
+    path('noticias.html',views.noticias)
+    
     #path('',views.contacto)
 ]

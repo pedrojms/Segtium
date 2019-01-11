@@ -11,5 +11,18 @@ def index(request):
    template = loader.get_template('index.html') 
    return HttpResponse(template.render()) 
 
+def somos(request):
+	template = loader.get_template('somos.html') 
+	return HttpResponse(template.render())
+
+def servicios(request):
+	template = loader.get_template('hacemos.html') 
+	return HttpResponse(template.render()) 
+
 def contacto(request):
-   print()
+	template = loader.get_template('contactenos.html') 
+	return HttpResponse(template.render())
+
+def noticias(request):
+	template = loader.get_template('noticias.html') 
+	return HttpResponse(template.render())
