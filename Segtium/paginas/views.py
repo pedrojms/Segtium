@@ -13,6 +13,14 @@ def index(request):
    template = loader.get_template('index.html') 
    return HttpResponse(template.render()) 
 
+def somos(request):
+	template = loader.get_template('somos.html') 
+	return HttpResponse(template.render())
+
+def servicios(request):
+	template = loader.get_template('hacemos.html') 
+	return HttpResponse(template.render()) 
+
 def contacto(request):
    if request.method == 'POST':
         #will handle the request later
@@ -49,3 +57,8 @@ def contacto(request):
       form = Contactenos()
         #returning form
       return render(request, 'contactenos2.html', {'form':form});
+
+
+def noticias(request):
+	template = loader.get_template('noticias.html') 
+	return HttpResponse(template.render())

@@ -22,4 +22,11 @@ urlpatterns = [
     path('',include('paginas.urls')),
     #path('',views.index),
     #path('contacto/',views.contacto)
+    path('',views.index),
+    path('somos.html',views.somos),
+    path('hacemos.html',views.servicios),
+    #path('contactenos.html',views.contacto),
+    path('noticias.html',views.noticias)
+    
+    #path('',views.contacto)
 ]
