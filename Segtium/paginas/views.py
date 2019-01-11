@@ -12,4 +12,4 @@ def index(request):
    return HttpResponse(template.render()) 
 
 def contacto(request):
-   
+   print()
