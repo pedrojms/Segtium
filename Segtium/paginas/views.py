@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
+from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio
  
 @csrf_exempt 
 def index(request): 
@@ -62,3 +63,19 @@ def contacto(request):
 def noticias(request):
 	template = loader.get_template('noticias.html') 
 	return HttpResponse(template.render())
+
+def ListarServicios(request):
+  model=ListadoServicio()
+  context = {'object_list':model}
+  return render(request,'rservicios.html',context)
+
+def ListarEmpresa(request):
+  model=ListadoEmpresa()
+  context = {'object_list':model}
+  return render(request,'rempresas.html',context)
+
+def ListarVendedor(request):
+  model=ListadoVendedor()
+  context = {'object_list':model}
+  return render(request,'rvendedor.html',context)
+
