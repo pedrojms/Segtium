@@ -55,6 +55,7 @@ class Solicitud(models.Model):
 
 class Contrato(models.Model):
 	fecha=models.DateField()
+	precio=models.FloatField()
 	usuario=models.ForeignKey(Usuario, null=True, blank=True, on_delete=models.CASCADE)
 	empresa=models.ForeignKey(Empresa, null=True, blank=True, on_delete=models.CASCADE)
 	vendedor=models.ForeignKey(Vendedor, null=True, blank=True, on_delete=models.CASCADE)
