@@ -1,0 +1,28 @@
+{% extends 'reportes.html' %}
+{% block content %}
+<table id="example" class="display nowrap" style="width:100%">
+	<thead>
+		<tr>
+			<td>RUC</td>
+			<td>Nombre</td>
+			<td>Representante</td>
+			<td>Total Ventas</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for usuario in object_list %}
+		<tr>
+			<td>{{ usuario.id }}</td>
+			<td>{{ usuario.username }}</td>
+			<td>{{ usuario.first_name }}</td>
+			<td>{{ usuario.first_name }}</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de usuario</h1>
+		{% endif %}
+	</tbody>
+</table>
+{% endblock %}
