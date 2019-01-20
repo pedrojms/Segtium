@@ -245,6 +245,15 @@ table td {
     color: white;
 }
 
+#menu-reporte a:hover {
+    background-color: #ebebeb; /* Dark grey background on mouse-over */
+}
+
+#menu-reporte a#active {
+    background-color: #2b90d9; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
 #menu-ser div div{
 	display: inline-grid;
 	margin: auto;
