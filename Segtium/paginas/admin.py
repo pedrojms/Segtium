@@ -1,8 +1,10 @@
 from __future__ import unicode_literals 
 
 from django.contrib import admin 
-
 from .models import Noticias,Servicio,Brochure,Vendedor,Empresa,Beneficios
+from .views import ListarServicios
+from . import views
+from django.conf.urls import url
 
 class NoticiaAdmin(admin.ModelAdmin): 
 	ordering = ('-id',) 
@@ -38,6 +40,8 @@ class BeneficiosAdmin(admin.ModelAdmin):
 	ordering = ('-id',) 
 
 	search_fields = ('nombre', 'descripcion')  
+
+
 
 admin.site.register(Noticias, NoticiaAdmin)
 admin.site.register(Servicio, ServicioAdmin)
