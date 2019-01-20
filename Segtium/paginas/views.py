@@ -23,7 +23,7 @@ def servicios(request):
 	return HttpResponse(template.render()) 
 
 def carrito(request):
-  template = loader.get_template('carrito2.html') 
+  template = loader.get_template('carrito.html') 
   return HttpResponse(template.render()) 
 
 def contacto(request):
