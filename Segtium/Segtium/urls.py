@@ -26,7 +26,8 @@ urlpatterns = [
     path('somos/',views.somos, name='somos'),
     path('hacemos/',views.servicios,name='servicios'),
     #path('contactenos.html',views.contacto),
-    path('noticias/',views.noticias,name='noticias')
+    path('noticias/',views.noticias,name='noticias'),
+    path('carrito/',views.carrito,name='carrito'),
     
     #path('',views.contacto)
 ]

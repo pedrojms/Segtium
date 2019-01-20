@@ -7,7 +7,7 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio
- 
+
 @csrf_exempt 
 def index(request): 
    
@@ -21,6 +21,10 @@ def somos(request):
 def servicios(request):
 	template = loader.get_template('hacemos.html') 
 	return HttpResponse(template.render()) 
+
+def carrito(request):
+  template = loader.get_template('carrito2.html') 
+  return HttpResponse(template.render()) 
 
 def contacto(request):
    if request.method == 'POST':
