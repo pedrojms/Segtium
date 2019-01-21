@@ -70,16 +70,20 @@
           </div>
         </section>
       </div>
-      <div class="row col-xl-12 col-12">  
+      <div class="col-xl-12 col-12">  
           {% load crispy_forms_tags %}
           {% block main %}
-          <form id="formcontactar" action="/contacto/" method="post"> 
-            <br>
-            <br>
+          <form class="col-xl-12" id="formcontactar" action="/contacto/" method="post"> 
+            <div class="col-xl-12 align-item-center">
+              <br>
+            <div class="col list-group-item text-center">
             {% csrf_token %}
             {{ form|crispy }}
             <input type="submit" value="Enviar" /> 
             </div>
+            </div>
+            </div>
+            <br>
           </form>
           {% endblock %}
 
