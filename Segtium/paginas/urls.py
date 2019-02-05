@@ -1,4 +1,5 @@
 from django.urls import path, include
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
@@ -7,5 +8,5 @@ urlpatterns = [
     path('rservicios/',views.ListarServicios,name='r-servicios'),
     path('rempresa/',views.ListarEmpresa,name='r-empresa'),
     path('rvendedor/',views.ListarVendedor,name='r-vendedor')
-
+    url(r'^(?P<dato>\d+)/hacemos$',views.servicios,name='servicios'),
 ]

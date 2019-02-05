@@ -11,3 +11,8 @@ def ListadoVendedor():
 def ListadoServicio():
 	model=Servicio.objects.raw('SELECT * FROM reporteservicios()')
 	return model
+
+def ElemInd(entidad,dato):
+  response = requests.get('http://127.0.0.1:8001/'+entidad+'/'+dato+'/')
+  data = response.json()
+  return data

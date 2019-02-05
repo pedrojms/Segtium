@@ -24,7 +24,7 @@ urlpatterns = [
     #path('contacto/',views.contacto)
     path('',views.index,name='home'),
     path('somos/',views.somos, name='somos'),
-    path('hacemos/',views.servicios,name='servicios'),
+    
     #path('contactenos.html',views.contacto),
     path('noticias/',views.noticias,name='noticias'),
     path('carrito/',views.carrito,name='carrito'),

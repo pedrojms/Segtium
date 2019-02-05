@@ -18,9 +18,12 @@ def somos(request):
 	template = loader.get_template('somos.html') 
 	return HttpResponse(template.render())
 
-def servicios(request):
-	template = loader.get_template('hacemos.html') 
-	return HttpResponse(template.render()) 
+def servicios(request,dato):
+  data=ElemInd("servicios",dato)
+  context={'servicio':data}
+  return render(request, 'hacemos.html', context)
+	#template = loader.get_template('hacemos.html') 
+	#return HttpResponse(template.render()) 
 
 def carrito(request):
   template = loader.get_template('carrito.html') 
