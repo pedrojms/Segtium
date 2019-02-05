@@ -1,13 +1,5 @@
-function clear(){
-  document.getElementById("txt-ser").innerHTML="";
-  document.getElementById("imagen-ser").innerHTML="";
-  document.getElementById("bene1").innerHTML="";
-  document.getElementById("bene2").innerHTML="";
-  document.getElementById("bene3").innerHTML="";
-  document.getElementById("bene4").innerHTML="";
-}
 
-
+/*
 function addServicio(titulo, contenido,b1,b2,b3,b4,b1im,b2im,b3im,b4im,imagen){
     var title = $("<h2/>", {
       "class":"card-title",
@@ -77,36 +69,32 @@ function addServicio(titulo, contenido,b1,b2,b3,b4,b1im,b2im,b3im,b4im,imagen){
     bene4.appendTo( "#bene4" );
 
 }
-
+*/
 function ethBoton(){
-  clear()
-  document.querySelector('[ id="active"]').setAttribute('id','inactive')
-  document.querySelector('[ href="#eth-hack"]').setAttribute('id','active')
-  loadServiciosXml("ethhack") 
+  document.getElementById("active").setAttribute('id','inactive')
+  document.querySelector('[ href=3]').setAttribute('id','active')
+
 }
 
 function cyberBoton(){
-  clear()
-  document.getElementById("active").setAttribute('id','inactive')
-  document.querySelector('[ href="#analy-cyber"]').setAttribute('id','active')
-  loadServiciosXml("cyber")
+  document.querySelector('[ id="active"]').setAttribute('id','inactive')
+  document.querySelector('[ href=1]').setAttribute('id','active')
+
 }
 
 function ISOBoton(){
-  clear()
   document.getElementById("active").setAttribute('id','inactive')
-  document.querySelector('[ href="#cons-iso"]').setAttribute('id','active')
-  loadServiciosXml("ISO")
+  document.querySelector('[ href=2]').setAttribute('id','active')
+
 }
 
 function codeBoton(){
-  clear()
   document.getElementById("active").setAttribute('id','inactive')
-  document.querySelector('[ href="#analy-cod"]').setAttribute('id','active')
-  loadServiciosXml("codigo")
-}
+  document.querySelector('[ href=4]').setAttribute('id','active')
 
-/*function loadServiciosXml(seleccionado){
+}
+/*
+function loadServiciosXml(seleccionado){
     var pg = require(‘pg’);
     var connectionString = "postgres://djando_windows:1997@PostgreSQL9.4/ip:port/segtiumSA";
     var pgClient = new pg.Client(connectionString);
@@ -142,7 +130,7 @@ function codeBoton(){
   });
 }*/
 
-
+/*
 
 function loadServiciosXml(seleccionado) {
   $.ajax({
@@ -177,7 +165,5 @@ function loadServiciosXml(seleccionado) {
 }
 
 $(document).ready(function(){
-  loadServiciosXml("cyber")
 
-
-});
+});*/

@@ -1,64 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Segtium</title>
-    <meta name="viewport" content="width=device-width">
-    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <meta name="keywords" content="Segtium S.A ,Cyberseguridad"/>
-    <meta name="author" content="Isabela Vinces, Fanny Valverde"/>
-    <meta name="description" content="Este sitio es para una empresa de cyberseguridad"/>
-
-  </head>
-  <body>
-
-    <div class="container-fluid">
-      <div class="row">
-        <section id="top" class="col-xl-12 col-12">
-          <div id="red-sociales" class="row col-xl-12 col-12">
-              <p class="col-xl-10 col-8">Siguenos en nuestras redes sociales: </p>
-              <ul class="col-xl-2 col-4 list-inline">
-                  <li class="list-inline-item" class="col-3 col-xl-3"><img id="im-socialmed1" src="{% static 'imagenes/facebook.png' %}" alt="face"/></li>
-                  <li class="list-inline-item" class="col-3 col-xl-3"><img id="im-socialmed2" src="{% static 'imagenes/Twitter.png' %}" alt="twitter"/></li>
-                  <li class="list-inline-item" class="col-3 col-xl-3"><img id="im-socialmed3" src="{% static 'imagenes/insta.png' %}" alt="insta"/></li>
-                  <li class="list-inline-item" class="col-3 col-xl-3"><img id="im-socialmed4" src="{% static 'imagenes/LinkedIn.png' %}" alt="linkedin "/></li>
-              </ul> 
-            </div>
-        </section>
-      </div>
-      <div class="row">
-        <nav class="col-12">
-          <br>
-          <form id="buscar" class="col-xl-12 col-12">
-              <input id="buscador" type="text" placeholder="Buscar.." name="busar">
-              <button type="submit">Buscar</button>
-              <br>
-          </form> 
-          <div class="row">
-              <div id="logo-div" class="col-xl-6 col-12">
-                <a tittle="logo" href="{% url 'home' %}"><img src="{% static 'imagenes/Logo-Segtium.png' %}" alt="logo"/></a>
-              </div>
-              <div id="menu" class="col-xl-6 col-12 list-inline">
-                <ul class="nav nav-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'somos' %}" >Somos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'noticias' %}" >Noticias</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contáctenos</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
-      </div>
+{% block content %}
       <br>
       <section id="im" class="col-xl-12 col-12">
         <img src="https://via.placeholder.com/1330x200" alt="placeholder" class="col-12"/>
@@ -68,10 +10,10 @@
         <div class="row">
           <div class="column col-xl-3 col-12">
             <div id="vertical-menu" class="col-xl-12 col-12">
-              <a href="#analy-cyber" onclick="cyberBoton();" id="active">Análisis Cyberseguridad</a>
-              <a href="#cons-iso" onclick="ISOBoton();" id="inactive">Consultoria ISO 27001</a>
-              <a href="#eth-hack" onclick="ethBoton();" id="inactive">Ethical Hacking</a>
-              <a href="#analy-cod" onclick="codeBoton();" id="inactive">Análisis de Código</a>
+              <a onclick="cyberBoton();" href="1" id="active">Análisis Cyberseguridad</a>
+              <a onclick="ISOBoton();" href="2" id="inactive">Consultoria ISO 27001</a>
+              <a onclick="ethBoton();" href="3" id="inactive">Ethical Hacking</a>
+              <a onclick="codeBoton();" href="4" id="inactive">Análisis de Código</a>
             </div>
             <a class="btn btn-primary" href="{% url 'carrito' %}">Ir al Carrito</a>
           </div>
@@ -79,11 +21,15 @@
             <div id="imagen-ser" class="col-xl-12 col-12">
             </div>
           </div>
+          {% for ser in servicios %}
           <div class="column col-xl-6 col-12">
             <div id="txt-ser" class="col-xl-12 col-12">
-
+              <h2>{{ ser.nombre }}</h2>
+              <p>{{ ser.descripcion }}</p>
             </div>
           </div>
+          {% endfor %}
+
         </div>
       </aside>
 
@@ -95,47 +41,28 @@
       
       <section id="beneficios-prod" class="col-xl-12 col-sm-12 col-12">
         <div class="row">
-          <div id="bene1" class="col-xl-3 col-6">
-
+          {% for ben in beneficios %}
+          <div id="bene1" class="col-xl-4 col-6">
+            <p>{{ben.descripcion }}</p>
           </div>
-          <div id="bene2" class="col-xl-3 col-6">
-
+          {% endfor %}
+          <!--<div id="bene2" class="col-xl-3 col-6">
+            <p>{{ beneficios.descripcion }}</p>
           </div>
           <div id="bene3" class="col-xl-3 col-6">
-
+            <p>{{ beneficios.descripcion }}</p>
           </div>
           <div id="bene4" class="col-xl-3 col-6">
-
-          </div>
+            <p>{{ beneficios.descripcion }}</p>
+          </div>-->
           <br>
         </div>
       </section>
-      <section id="info" class="col-xl-12 col-sm-12 col-12">
-          <div class="row">
-            <div id="in1" class="col-xl-4 col-sm-4">
-              <img src="https://via.placeholder.com/30x30" alt="placeholder" />
-              <p>coordinacion@segtium.com</p>
-            </div>
-            <div id="in2" class="col-xl-4 col-sm-4">
-              <img src="https://via.placeholder.com/30x30" alt="placeholder" />
-              <p>Malecón Simón Bolivar y Padre Aguirre, Edificio el Fortín, Piso 1, Ofi. 3. </p>
-            </div>
-            <div id="in3" class="col-xl-4 col-sm-4">
-              <img class="col-6" src="https://via.placeholder.com/200x100" alt="placeholder" />
-            </div>
-          </div>
-        </section>
-      <footer class="col-xl-12 col-12">
-        <p>Derechos Reservados &copy; 2018 SEGTIUM S.A.</p>
-      </footer>
-    </div>
+
+{% endblock %} 
+
+{% block script %}
+<script src="{% static 'js/loadxml.js' %}" type="text/javascript" charset="utf-8"></script>
+  {% endblock %}
+
   
-  <script src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="{% static 'js/loadxml.js' %}" type="text/javascript" charset="utf-8"></script>
-  <script src="{% static 'js/buscador.js' %}" type="text/javascript" charset="utf-8"></script>
-  </body>
-</html>

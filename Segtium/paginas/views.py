@@ -19,12 +19,21 @@ def somos(request):
 	return HttpResponse(template.render())
 
 def servicios(request,dato):
-  model=ServiciosCon(dato)
-  bene=BeneficiosCon(dato)  
+  iden='Ethical Hacking'
+  if(dato=="1"):
+    iden='Análisis de Cyberseguridad'
+  if(dato=="2"):
+    iden='Consultoría ISO 27001'
+  if(dato=="3"):
+    iden='Ethical Hacking'
+  if(dato=="4"):
+    iden='Análisis de Código'
+  model=ServiciosCon(iden)
+  bene=BeneficiosCon(iden)  
   context = {'servicios':model,'beneficios':bene}
   return render(request,'hacemos.html',context)
-	#template = loader.get_template('hacemos.html') 
-	#return HttpResponse(template.render()) 
+  #template = loader.get_template('hacemos.html') 
+  #return HttpResponse(template.render()) 
 
 def carrito(request):
   template = loader.get_template('carrito.html') 
