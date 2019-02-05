@@ -73,8 +73,22 @@
 		 };
 
 	}]);
+	
+	jQuery.ajax({
+            url: "http://127.0.0.1:8001/servicios",
+            type: "GET",
 
-	var productsData = [{
+            contentType: 'application/json; charset=utf-8',
+            success: function(resultData) {
+                console.log(resultData);
+
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+
+            timeout: 120000,
+        });
+	/*var productsData = [{
 		id: 1,
 		name: 'Servicio 1',
 		price: 100.0,
@@ -94,6 +108,6 @@
 		name: 'Servicio 4',
 		price: 99.9,
 		image: ''
-	}];
+	}];*/
 
 })();

@@ -4,6 +4,6 @@ from . import models
 class ServiciosSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Servicio
-        fields = ('nombre','descripcion')
+        fields = ("id",'nombre','descripcion')
 
 
