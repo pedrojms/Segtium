@@ -85,9 +85,9 @@ DATABASES = {
     #}
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'segtiumSA',
-        'USER': 'django_windows',
-        'PASSWORD': '1997',
+        'NAME': 'proyectodaw',
+        'USER': 'postgres',
+        'PASSWORD': 'dayanara10',
         'HOST': 'localhost',
         'PORT':'',
     }
