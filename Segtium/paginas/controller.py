@@ -12,7 +12,11 @@ def ListadoServicio():
 	model=Servicio.objects.raw('SELECT * FROM reporteservicios()')
 	return model
 
-def ElemInd(entidad,dato):
-  response = requests.get('http://127.0.0.1:8001/'+entidad+'/'+dato+'/')
-  data = response.json()
-  return data
+def ServiciosCon(entidad):
+	model=Servicio.objects.raw("SELECT ps.descripcion FROM paginas_servicio ps WHERE ps.nombre='"+entidad+"'")
+	return model
+
+
+def BeneficiosCon(entidad):
+	model=Beneficios.objects.raw("SELECT pb.descripcion FROM paginas_servicio ps ,paginas_beneficios pb WHERE ps.id=pb.servicio_id_id and ps.nombre='"+entidad+"'")
+	return model

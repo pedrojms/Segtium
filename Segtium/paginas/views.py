@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
-from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio
+from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon
 
 @csrf_exempt 
 def index(request): 
@@ -19,9 +19,10 @@ def somos(request):
 	return HttpResponse(template.render())
 
 def servicios(request,dato):
-  data=ElemInd("servicios",dato)
-  context={'servicio':data}
-  return render(request, 'hacemos.html', context)
+  model=ServiciosCon(dato)
+  bene=BeneficiosCon(dato)  
+  context = {'servicios':model,'beneficios':bene}
+  return render(request,'hacemos.html',context)
 	#template = loader.get_template('hacemos.html') 
 	#return HttpResponse(template.render()) 
 
