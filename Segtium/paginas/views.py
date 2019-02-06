@@ -114,16 +114,19 @@ def reportes(request):
 
 def ListarServicios(request):
   model=ListadoServicio()
+  csrf(model)
   context = {'object_list':model}
   return render(request,'rservicios.html',context)
 
 def ListarEmpresa(request):
   model=ListadoEmpresa()
+  csrf(model)
   context = {'object_list':model}
   return render(request,'rempresas.html',context)
 
 def ListarVendedor(request):
   model=ListadoVendedor()
+  csrf(model)
   context = {'object_list':model}
   return render(request,'rvendedor.html',context)
 
