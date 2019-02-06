@@ -22,8 +22,9 @@ import requests,json,time,datetime
 
 @csrf_exempt 
 def index(request):
-  template = loader.get_template('index.html') 
-  return HttpResponse(template.render()) 
+  dictionary = dict(request=request) 
+  dictionary.update(csrf(request)) 
+  return render(request,'index.html', dictionary)
 
 
 def somos(request):
