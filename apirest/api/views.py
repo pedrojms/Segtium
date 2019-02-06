@@ -12,3 +12,7 @@ class ServicioViewset(viewsets.ModelViewSet):
     queryset = models.Servicio.objects.all()
     serializer_class = serializers.ServiciosSerializer
 
+class NoticiasViewset(viewsets.ModelViewSet):
+	queryset = models.Noticias.objects.all()
+	serializer_class = serializers.NoticiasSerializer
+

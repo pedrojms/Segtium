@@ -7,3 +7,7 @@ class ServiciosSerializer(serializers.ModelSerializer):
         fields = ("id",'nombre','descripcion','preciobase')
 
 
+class NoticiasSerializer(serializers.ModelSerializer):
+	class Meta:
+		model= models.Noticias
+		fields=("id","titulo","descripcion","fuente","fecha")
