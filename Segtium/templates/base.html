@@ -1,5 +1,7 @@
 {% extends 'base_main.html' %}
 {% load static %}
+    {% block importar %}
+    {% endblock %}
     {% block import %}
     
     <meta charset="utf-8">
@@ -61,6 +63,10 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'perfil' %}">Perfil</a>
                     </li>
+                    {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'reportes' %}">Reportes</a>
+                    </li>
                     {% endif %}
                   {% endif %}
                 </ul>
@@ -69,6 +75,8 @@
         </nav>
       </div>
       {% block content %}
+      {% endblock %}
+      {% block reportes %}
       {% endblock %}
 
 <div class="row">

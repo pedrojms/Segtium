@@ -11,6 +11,7 @@ urlpatterns = [
     path('rvendedor/',views.ListarVendedor,name='r-vendedor'),
     url(r'^$', views.main_base_view, name='main_base'), 
     url(r'^login/$', views.login, name='login'),
+    url(r'^reportes/$', views.reportes, name='reportes'),
 
 	url(r'^(?P<dato>\d+)/actualizar$', views.editItem, name='actualizar-model'),
 	url(r'^(?P<dato>\d+)', views.deleteItem, name='borrar-model'), 

@@ -107,6 +107,11 @@ def noticias(request):
   dictionary.update(csrf(request)) 
   return render(request,'noticias.html', dictionary) 
 
+def reportes(request):
+  dictionary = dict(request=request) 
+  dictionary.update(csrf(request)) 
+  return render(request,'reportes.html', dictionary) 
+
 def ListarServicios(request):
   model=ListadoServicio()
   context = {'object_list':model}
