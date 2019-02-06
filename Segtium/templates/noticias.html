@@ -1,15 +1,60 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-      <div class="row">
-        <section id="titulonews" class="col-xl-12">
-          <p class="col-xl-12">Noticias</p>
+      <div class="col-12 row">
+        <section id="titulonews" class="col-12 col-xl-12">
+          <p class="col-12 col-xl-12">Noticias</p>
         </section>
       </div>
-      <div class="row">
-        <section id="news" class="col-xl-12">
+      <div class="col-12 col-xl-12">
+        <section id="news" class="col-12 col-xl-12">
           <br>
-          <div class="row">
+          <div class="col 12 col-xl-12">
+            <br>
+            <br>
+            {% if object_list %}
+            {% for noticia in object_list %}
+            <div class="col-12 col-xl-12" id="pintarnews">
+              <div class="col-12 col-xl-12">
+                <h2>{{noticia.titulo}}</h2>
+              </div>
+              <br>
+              <br>
+              <div class="col-8 col-xl-8">
+                <div class="col-12 col-xl-12">
+                  <h3>{{noticia.descripcion}}</h3>
+                </div>
+                <br>
+                <div class="col-12 col-xl-12" id="fecha-fuente">
+                  <div class="col-6 col-xl-6">
+                    <p>Fecha: {{noticia.fecha}}</p>
+                  </div>
+                  <div class="col-6 col-xl-6">
+                    <p>Fuente: {{noticia.fuente}}</p>
+                  </div>
+                </div>
+                <br>
+              </div>
+
+              {% if request.user.is_authenticated %} 
+              {% if 'admin' in user.get_username %} 
+                <div class="col-4 col-xl-4">
+                  <a class="btn btn-primary" href="{% url 'borrar-model' dato=noticia.id %}">Delete</a>
+                  <a class="btn btn-primary" href="{% url 'actualizar-model' dato=noticia.id %}">Edit</a>
+                </div>
+              {% endif %}
+              {% endif %}
+            </div>
+            <br>
+            <br>
+            <br>
+            {% endfor %}
+            {% endif %}
+            
+          </div>
+
+
+          <!--<div class="row">
             <article class="col-xl-12">
               <div class="row">
                 <header>
@@ -38,7 +83,7 @@
                 </div>
               </div>
             </article>
-          </div>
+          </div>-->
           <br>
           <br>
         </section>
@@ -49,7 +94,7 @@
               <div class="col-xl-12 col-12">
               {% if request.user.is_authenticated %} 
                 {% if 'admin' in user.get_username %}
-                  <a class="btn btn-primary" href="{% url 'home' %}">Agregar noticia</a>
+                  <a class="btn btn-primary" href="{% url 'agregar-model' %}">Agregar noticia</a>
                 {% endif %}
               {% endif %}
               </div>
@@ -61,5 +106,4 @@
         <br>
         <br>
       </div>
-
 {% endblock %} 

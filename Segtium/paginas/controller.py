@@ -1,4 +1,5 @@
-from .models import Empresa,Vendedor, Servicio,Beneficios
+from .models import Empresa,Vendedor, Servicio,Beneficios,Noticias
+import requests,json
 
 def ListadoEmpresa():
 	model=Empresa.objects.raw('SELECT * FROM reporteempresa()')
@@ -20,3 +21,26 @@ def ServiciosCon(entidad):
 def BeneficiosCon(entidad):
 	model=Beneficios.objects.raw("SELECT pb.id ,pb.descripcion FROM paginas_servicio ps ,paginas_beneficios pb WHERE ps.id=pb.servicio_id_id and ps.nombre='"+entidad+"'")
 	return model
+
+
+def ListarNoticias(entidad):
+  response = requests.get('http://127.0.0.1:8001/'+entidad+'/')
+  data = response.json()
+  return data
+
+def ElemInd(entidad,dato):
+  response = requests.get('http://127.0.0.1:8001/'+entidad+'/'+dato+'/')
+  data = response.json()
+  return data
+
+def Edit(dato,registro):
+  response=requests.put('http://127.0.0.1:8001/noticias/'+dato+"/",registro)
+  return response
+
+def Add(registro):
+  response=requests.post('http://127.0.0.1:8001/noticias/',registro)
+  return response
+
+def Delete(dato):
+  response=requests.delete('http://127.0.0.1:8001/noticias/'+dato+"/")
+  return response

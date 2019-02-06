@@ -6,10 +6,10 @@ from django.http import HttpResponse
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
-from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon
+from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add
 
 
-from django.shortcuts import render, render_to_response 
+from django.shortcuts import render, render_to_response,redirect
 from django.template.context_processors import csrf 
 from .utility import * 
 from django.contrib.auth import login as auth_login 
@@ -17,7 +17,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponseRedirect 
 from django.urls import reverse 
 from django.contrib.auth.decorators import login_required
-
+import requests,json,time,datetime
 
 
 @csrf_exempt 
@@ -145,3 +145,41 @@ def login(request):
             dictionary = dict(request=request, messages = msg_to_html) 
             dictionary.update(csrf(request))
         return render(request,'index.html', dictionary)
+
+
+
+
+
+
+def MostrarNoticias(request):  
+  listanoticias=ListarNoticias("noticias")
+  print(listanoticias)
+  context= {'object_list': listanoticias}
+  return render(request, 'noticias.html',context)
+
+
+def add(request): 
+  noticias=ListarNoticias("noticias")
+  context= {'noticias': noticias}
+  if request.method == "POST":
+    x = datetime.datetime.now()
+    insertarnoticia = {"titulo": str(request.POST.get("titulo")), "descripcion":str(request.POST.get("descripcion")), "fuente":str(request.POST.get("fuente")), "fecha":"%s-%s-%s" % (x.year, x.month, x.day)}
+    Add(insertarnoticia)
+    return redirect('noticias')  
+  else:    
+    return render(request, 'add.html', context)
+
+def editItem(request, dato):  
+  data=ElemInd("noticias",dato)
+  context = { 'titulo': data["titulo"] , 'descripcion' : data["descripcion"], 'fuente' : data["fuente"]}
+  if request.method == "POST":
+    editarnoticia = {"titulo": str(request.POST.get("titulo")), "descripcion":str(request.POST.get("descripcion")), "fuente":str(request.POST.get("fuente")), "fecha":data["fecha"]}
+    Edit(dato,editarnoticia)
+    return redirect('noticias') 
+  else:
+    return render(request, 'actualizar.html', context) 
+
+
+def deleteItem(request, dato):
+  Delete(dato)  
+  return redirect('noticias')
