@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load staticfiles %}
 {% block content %}
       <br>
       <section id="im" class="col-xl-12 col-12">
@@ -10,12 +11,12 @@
         <div class="row">
           <div class="column col-xl-3 col-12">
             <div id="vertical-menu" class="col-xl-12 col-12">
-              <a onclick="cyberBoton();" href="1" id="active">Análisis Cyberseguridad</a>
-              <a onclick="ISOBoton();" href="2" id="inactive">Consultoria ISO 27001</a>
-              <a onclick="ethBoton();" href="3" id="inactive">Ethical Hacking</a>
-              <a onclick="codeBoton();" href="4" id="inactive">Análisis de Código</a>
+              <a onclick="cyberBoton()" href="1" id="active">Análisis Cyberseguridad</a>
+              <a onclick="ISOBoton()" href="2" id="inactive">Consultoria ISO 27001</a>
+              <a onclick="ethBoton()" href="3" id="inactive">Ethical Hacking</a>
+              <a onclick="codeBoton()" href="4" id="inactive">Análisis de Código</a>
             </div>
-            <a class="btn btn-primary" href="{% url 'carrito' %}">Ir al Carrito</a>
+            
           </div>
           <div class="column col-xl-3 col-12">
             <div id="imagen-ser" class="col-xl-12 col-12">
@@ -60,9 +61,6 @@
       </section>
 
 {% endblock %} 
-
 {% block script %}
-<script src="{% static 'js/loadxml.js' %}" type="text/javascript" charset="utf-8"></script>
-  {% endblock %}
-
-  
+<script src="{% static 'js/cargarxml.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

@@ -3,9 +3,11 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('',views.index),
+    #path('',views.index),
     path('contacto/',views.contacto,name='contact'),
     path('rservicios/',views.ListarServicios,name='r-servicios'),
     path('rempresa/',views.ListarEmpresa,name='r-empresa'),
     path('rvendedor/',views.ListarVendedor,name='r-vendedor'),
+    url(r'^$', views.main_base_view, name='main_base'), 
+    url(r'^login/$', views.login, name='login'),
 ]

@@ -39,7 +39,27 @@
               </div>
             </article>
           </div>
+          <br>
+          <br>
         </section>
+        <div class="row">
+          
+          <div class="col-12 text-center">
+            <div class="col-12 text-center">
+              <div class="col-xl-12 col-12">
+              {% if request.user.is_authenticated %} 
+                {% if 'admin' in user.get_username %}
+                  <a class="btn btn-primary" href="{% url 'home' %}">Agregar noticia</a>
+                {% endif %}
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
 
 {% endblock %} 

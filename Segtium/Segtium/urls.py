@@ -17,18 +17,24 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path,include
 from paginas import views
+from django.conf import settings
+from django.contrib.auth import views as auth_views 
+from django.contrib.auth.views import LogoutView  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('paginas.urls')),
     #path('',views.index),
     #path('contacto/',views.contacto)
-    path('',views.index,name='home'),
+    path('home/',views.index,name='home'),
     path('somos/',views.somos, name='somos'),
+    path('perfil/',views.perfil, name='perfil'),
     url(r'^hacemos/(?P<dato>\d+)',views.servicios,name='servicios'),
     #path('contactenos.html',views.contacto),
     path('noticias/',views.noticias,name='noticias'),
     path('carrito/',views.carrito,name='carrito'),
     
     #path('',views.contacto)
+    url(r'', include('paginas.urls')),  
+    url(r'^logout/', LogoutView.as_view(template_name='index.html'), name='logout'),
 ]

@@ -5,7 +5,7 @@ var app = angular.module("app", ['ngRoute','ng-Shop']);
 app.config(function($routeProvider)
 {
 	$routeProvider.when("/", {
-		templateUrl : "hcarrito.html",
+		templateUrl : "carrito.html",
 		controller : "homeController"
 	})
 	.when("/pay", {

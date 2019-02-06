@@ -15,13 +15,20 @@
       <div class="col-xl-12 col-12">  
           {% load crispy_forms_tags %}
           {% block main %}
+          <br>
           <form class="col-xl-12" id="formcontactar" action="/contacto/" method="post"> 
+            <br>
             <div class="col-xl-12 align-item-center">
               <br>
+              <br>
             <div class="col list-group-item text-center">
+            <div class="col-xl-12 col-12">
             {% csrf_token %}
             {{ form|crispy }}
+
             <input type="submit" value="Enviar" /> 
+            <br>
+            </div>
             </div>
             </div>
             </div>
@@ -30,35 +37,12 @@
           {% endblock %}
 
       </div>
+      <br>
+      <br>
       
       <div id="mapa-contenedor" class="col-xl-12 col-12">
         <div id="mapa"></div>
       </div>
-
-      <div class="row">
-        <section id="info" class="col-xl-12 col-sm-12 col-12">
-          <div class="row">
-            <div id="in1" class="col-xl-4 col-sm-4 col-12">
-              <img src="https://via.placeholder.com/30x30" alt="placeholder" />
-              <p>coordinacion@segtium.com</p>
-            </div>
-            <div id="in2" class="col-xl-4 col-sm-4 col-12">
-              <img src="https://via.placeholder.com/30x30" alt="placeholder" />
-              <p>Malecón Simón Bolivar y Padre Aguirre, Edificio el Fortín, Piso 1, Ofi. 3. </p>
-            </div>
-            <div id="in3" class="col-xl-4 col-sm-4 col-12">
-              <img src="https://via.placeholder.com/200x100" alt="placeholder" />
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="row">
-        <footer class="col-xl-12 col-sm-12">
-            <p>Derechos Reservados &copy; 2018 SEGTIUM S.A.</p>
-        </footer>
-      </div>
-      
-    </div>
 
 {% endblock %}
 {% block script %}
