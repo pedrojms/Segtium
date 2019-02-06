@@ -22,6 +22,7 @@ class Servicio(models.Model):
 
 	nombre=models.CharField(max_length=250) 
 	descripcion=models.TextField()
+	preciobase=models.FloatField()
 
 class Beneficios(models.Model):
 	nombre=models.CharField(max_length=250) 

@@ -2,11 +2,17 @@
 
 	var app = angular.module('store', ['ngCookies']);
 
-	app.controller('StoreController', ['$scope','$cookies', function($scope,$cookies){
-	
-		$scope.products = productsData;
+	app.controller('StoreController', ['$scope','$cookies','$http', function($scope,$cookies,$http) {
+
+		$http.get('http://127.0.0.1:8001/servicios.json').
+        then(function(response) {
+            $scope.products = response.data;
+            console.log(response.data);
+        });
+		
+    	//$scope.products=productsData;
 		$scope.cart = [];
-	  $scope.total = 0;
+	  	$scope.total = 0;
 	  /*
 		if ($cookieStore.get('cart') !== null) {
 		 		$scope.cart =  $cookieStore.get('cart');
@@ -44,7 +50,7 @@
 		 	$cookies.putObject('cart', $scope.cart,  {'expires': expireDate});
 		 	$scope.cart = $cookies.getObject('cart');
 		 
-		  $scope.total += parseFloat(product.price);
+		  $scope.total += parseFloat(product.preciobase);
       $cookies.put('total', $scope.total,  {'expires': expireDate});
 		 };
 
@@ -67,34 +73,12 @@
 		     
 		   }
 		   
-		   $scope.total -= parseFloat(product.price);
+		   $scope.total -= parseFloat(product.preciobase);
        $cookies.put('total', $scope.total,  {'expires': expireDate});
 		   
 		 };
 
 	}]);
-	
 
-	var productsData = [{
-		id: 1,
-		name: 'Servicio 1',
-		price: 100.0,
-		image: ''
-	},{
-		id: 2,
-		name: 'Servicio 2',
-		price: 14.5,
-		image: ''
-	},{
-		id: 3,
-		name: 'Servicio 3',
-		price: 100.43,
-		image: ''
-	},{
-		id: 4,
-		name: 'Servicio 4',
-		price: 99.9,
-		image: ''
-	}];
 
 })();

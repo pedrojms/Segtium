@@ -31,8 +31,8 @@
                 <figure>
                   <img width="100" height="100" src="https://lh3.googleusercontent.com/-M_NiblLM-0A/Vh9eSY5LIeI/AAAAAAAAB_I/VBeV8X1V2HM/s144-Ic42/mac.jpg" />
                   <figcaption>
-                      {{product.name}}  
-                                      <h3>{{product.price | currency}}</h3>
+                      {{product.nombre}}  
+                                      <h3>{{product.preciobase | currency}}</h3>
                   </figcaption>
                 </figure>
                 <input class="btn btn-success" type="button" ng-click="addItemToCart(product)" value="BUY" />
@@ -43,8 +43,8 @@
           <h1>Artículos en el Carrito</h1>
           <ul class="list-group">
             <li class="col-xl-12 list-group-item" ng-repeat="c in cart">
-              <h4>{{c.name}} |                <span style="color:blue"> {{c.count}} </span>
- | {{c.price*c.count | currency}}</h4>
+              <h4>{{c.nombre}} |                <span style="color:blue"> {{c.count}} </span>
+ | {{c.preciobase*c.count | currency}}</h4>
               <input class="btn btn-danger" type="button" ng-click="removeItemCart(c)" value="Remove" />
             </li>
           </ul>

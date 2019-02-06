@@ -3,9 +3,9 @@ google.charts.setOnLoadCallback(drawStacked);
 
 function drawStacked() {
       var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population', '2000 Population'],
+        ['City', '2018 Population', '2000 Population'],
         ['New York City, NY', 10, 8008000],
-        ['Los Angeles, CA', 3792000, 3694000],
+        ['LA, CA', 3792000, 3694000],
         ['Chicago, IL', 2695000, 2896000],
         ['Houston, TX', 2099000, 1953000],
         ['Philadelphia, PA', 1526000, 1517000]
@@ -25,5 +25,5 @@ function drawStacked() {
       };
       var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(data, options);
-    }
+}
 
