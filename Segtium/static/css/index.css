@@ -171,7 +171,7 @@ footer{
 
 
 #somos-text {
-	font-size: 1.5em;
+	font-size: 2em;
 	text-align: center;
 	font-family: 'Ubuntu', sans-serif;
 }
@@ -279,7 +279,9 @@ table td {
 }
 
 #txt-ser p{
+	font-size: medium;
 	text-align: justify;
+	
 }
 
 #menu-ser h2 {
