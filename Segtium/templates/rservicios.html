@@ -1,21 +1,12 @@
 {% extends 'reportes.html' %}
-{% load static %}
-{% block importarserv %}
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">}
-<script src="{% static 'js/botones.js' %}"></script> 
-<meta charset="UTF-8">
-{% endblock %}
 {% block contenido %}
 
-<div class="container-fluid">
-<table id="example" class="table table-bordered">
 	<thead>
 		<tr>
 			<td>#</td>
 			<td>Nombre</td>
 			<td>Descripcion</td>
 			<td>Total Ventas</td>
-			<td>   </td>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,13 +24,5 @@
 		<h1>No hay registros de usuario</h1>
 		{% endif %}
 	</tbody>
-</table>
-</div>
 	
-{% endblock %}
-{% block estaticos %}
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/botones.js' %}"></script> 
 {% endblock %}

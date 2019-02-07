@@ -1,4 +1,4 @@
-from .models import Empresa,Vendedor, Servicio,Beneficios,Noticias
+from .models import Empresa,Vendedor, Servicio,Beneficios,Noticias,Usuario
 import requests,json
 
 def ListadoEmpresa():
@@ -44,3 +44,7 @@ def Add(registro):
 def Delete(dato):
   response=requests.delete('http://127.0.0.1:8001/noticias/'+dato+"/")
   return response
+
+def InfoPerfil(correo):
+  model=Usuario.objects.raw("SELECT pu.id,pu.nombre,pu.apellido,pu.correo FROM paginas_usuario pu WHERE pu.correo='"+correo+"'")
+  return model

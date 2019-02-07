@@ -13,11 +13,9 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
   <title>{% block title %}Reporte{% endblock %}</title>
   <script src="{% static 'js/buscador.js' %}" type="text/javascript" charset="utf-8"></script>
-  <script src="{% static 'js/botones.js' %}"></script> 
   {% endblock %}
-
-      {% block reportes %}
-    <div class="col-xl-12 col-12">
+  {% block content %}
+        <div class="col-xl-12 col-12">
     <div class="row">
     <section id="titulonews" class="col-xl-12">
       <p class="col-xl-12">Reportes</p>
@@ -40,36 +38,20 @@
           </div>  
           </div>
           </aside>
-          </div>
-        
-          <br>
-          <br>
-          <div class="container col-xl-12 col-12">
-            <br>
-            <br>
-            {% block contenido %}
-            {% endblock %}
-            <br>
-            <br>
-          </div>
+          <div class="container">
+              <div class="col-xl-12 col-12">
+              <table id="example" class="table table-bordered display nowrap" style="width:100%">
+
+                  {% block contenido %}
+                  {% endblock %}
             
-          
-          <br>
-          <br>
-      
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+            </table>
+          </div>
+          </div>
     
-    {% endblock %}
+
+    </div>
+  {% endblock %}
 {% block script %}
   <script src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

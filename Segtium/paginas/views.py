@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
-from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add
+from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add,InfoPerfil
 
 
 from django.shortcuts import render, render_to_response,redirect
@@ -24,7 +24,7 @@ import requests,json,time,datetime
 def index(request):
   dictionary = dict(request=request) 
   dictionary.update(csrf(request)) 
-  return render(request,'index.html', dictionary)
+  return render(request,'index.html', dictionary)  
 
 
 def somos(request):
@@ -58,11 +58,6 @@ def carrito(request):
   dictionary.update(csrf(request)) 
   return render(request,'carrito.html', dictionary) 
  
-
-def perfil(request):
-  dictionary = dict(request=request) 
-  dictionary.update(csrf(request)) 
-  return render(request,'perfil.html', dictionary)
 
 def contacto(request):
   if request.method == 'POST':
@@ -114,23 +109,25 @@ def reportes(request):
 
 def ListarServicios(request):
   model=ListadoServicio()
-  csrf(model)
   context = {'object_list':model}
   return render(request,'rservicios.html',context)
 
 def ListarEmpresa(request):
   model=ListadoEmpresa()
-  csrf(model)
   context = {'object_list':model}
   return render(request,'rempresas.html',context)
 
 def ListarVendedor(request):
   model=ListadoVendedor()
-  csrf(model)
   context = {'object_list':model}
   return render(request,'rvendedor.html',context)
 
-
+def perfil(request):
+  username = request.user.email
+  print(username,"***")
+  model=InfoPerfil(str(username))
+  context = {'object_list':model}
+  return render(request,'perfil.html',context)
 
 
 def main_base_view(request): 
