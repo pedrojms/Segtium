@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
-from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add
+from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add,InfoPerfil
 
 
 from django.shortcuts import render, render_to_response,redirect
@@ -22,8 +22,9 @@ import requests,json,time,datetime
 
 @csrf_exempt 
 def index(request):
-  template = loader.get_template('index.html') 
-  return HttpResponse(template.render()) 
+  dictionary = dict(request=request) 
+  dictionary.update(csrf(request)) 
+  return render(request,'index.html', dictionary)  
 
 
 def somos(request):
@@ -57,11 +58,6 @@ def carrito(request):
   dictionary.update(csrf(request)) 
   return render(request,'carrito.html', dictionary) 
  
-
-def perfil(request):
-  dictionary = dict(request=request) 
-  dictionary.update(csrf(request)) 
-  return render(request,'perfil.html', dictionary)
 
 def contacto(request):
   if request.method == 'POST':
@@ -106,6 +102,11 @@ def noticias(request):
   dictionary.update(csrf(request)) 
   return render(request,'noticias.html', dictionary) 
 
+def reportes(request):
+  dictionary = dict(request=request) 
+  dictionary.update(csrf(request)) 
+  return render(request,'reportes.html', dictionary) 
+
 def ListarServicios(request):
   model=ListadoServicio()
   context = {'object_list':model}
@@ -121,7 +122,12 @@ def ListarVendedor(request):
   context = {'object_list':model}
   return render(request,'rvendedor.html',context)
 
-
+def perfil(request):
+  username = request.user.email
+  print(username,"***")
+  model=InfoPerfil(str(username))
+  context = {'object_list':model}
+  return render(request,'perfil.html',context)
 
 
 def main_base_view(request): 
