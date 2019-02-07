@@ -9,36 +9,38 @@
       <div class="col-12 col-xl-12">
         <section id="news" class="col-12 col-xl-12">
           <br>
+          <div class="container">
+            <div class="container">
           <div class="col 12 col-xl-12">
             <br>
             <br>
             {% if object_list %}
             {% for noticia in object_list %}
-            <div class="col-12 col-xl-12" id="pintarnews">
+            <div class="col-12 col-xl-12 text-right" id="pintarnews">
               <div class="col-12 col-xl-12">
                 <h2>{{noticia.titulo}}</h2>
               </div>
               <br>
               <br>
-              <div class="col-8 col-xl-8">
-                <div class="col-12 col-xl-12">
+              <div class="col-12 col-xl-12">
+                <div class="col-12 col-xl-12 text-right">
                   <h3>{{noticia.descripcion}}</h3>
                 </div>
                 <br>
-                <div class="col-12 col-xl-12" id="fecha-fuente">
-                  <div class="col-6 col-xl-6">
+                <div class="col-12 col-xl-12 text-right" id="fecha">
+                  
                     <p>Fecha: {{noticia.fecha}}</p>
                   </div>
-                  <div class="col-6 col-xl-6">
+                  <div class="col-12 col-xl- text-right" id="fuente">
                     <p>Fuente: {{noticia.fuente}}</p>
                   </div>
-                </div>
+                
                 <br>
               </div>
 
               {% if request.user.is_authenticated %} 
               {% if 'admin' in user.get_username %} 
-                <div class="col-4 col-xl-4">
+                <div class="col-12 col-xl-12">
                   <a class="btn btn-primary" href="{% url 'borrar-model' dato=noticia.id %}">Delete</a>
                   <a class="btn btn-primary" href="{% url 'actualizar-model' dato=noticia.id %}">Edit</a>
                 </div>
@@ -50,7 +52,8 @@
             <br>
             {% endfor %}
             {% endif %}
-            
+            </div>
+          </div>
           </div>
 
 
