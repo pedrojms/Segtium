@@ -70,3 +70,6 @@ class Noticias(models.Model):
 	imagen=models.CharField(max_length=250)
 
 
+class Ventas(models.Model):
+	nombre=models.CharField(max_length=250)
+	totalventas=models.IntegerField()

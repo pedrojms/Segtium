@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'apirest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'apidaw',
-        'USER': 'django_windows',
-        'PASSWORD': '1997',
+        'NAME': 'proyectodaw',
+        'USER': 'postgres',
+        'PASSWORD': 'dayanara10',
         'HOST': 'localhost',
         'PORT': 5432,
     }

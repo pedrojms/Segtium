@@ -16,3 +16,6 @@ class NoticiasViewset(viewsets.ModelViewSet):
 	queryset = models.Noticias.objects.all()
 	serializer_class = serializers.NoticiasSerializer
 
+class VentasViewset(viewsets.ModelViewSet):
+	queryset = models.Ventas.objects.all()
+	serializer_class = serializers.VentasSerializer

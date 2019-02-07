@@ -11,6 +11,7 @@ def ListadoVendedor():
 
 def ListadoServicio():
 	model=Servicio.objects.raw('SELECT * FROM reporteservicios()')
+	
 	return model
 
 def ServiciosCon(entidad):
@@ -24,23 +25,23 @@ def BeneficiosCon(entidad):
 
 
 def ListarNoticias(entidad):
-  response = requests.get('http://127.0.0.1:8001/'+entidad+'/')
-  data = response.json()
-  return data
+	response = requests.get('http://127.0.0.1:8001/'+entidad+'/')
+	data = response.json()
+	return data
 
 def ElemInd(entidad,dato):
-  response = requests.get('http://127.0.0.1:8001/'+entidad+'/'+dato+'/')
-  data = response.json()
-  return data
+	response = requests.get('http://127.0.0.1:8001/'+entidad+'/'+dato+'/')
+	data = response.json()
+	return data
 
 def Edit(dato,registro):
-  response=requests.put('http://127.0.0.1:8001/noticias/'+dato+"/",registro)
-  return response
+	response=requests.put('http://127.0.0.1:8001/noticias/'+dato+"/",registro)
+	return response
 
 def Add(registro):
-  response=requests.post('http://127.0.0.1:8001/noticias/',registro)
-  return response
+	response=requests.post('http://127.0.0.1:8001/noticias/',registro)
+	return response
 
 def Delete(dato):
-  response=requests.delete('http://127.0.0.1:8001/noticias/'+dato+"/")
-  return response
+	response=requests.delete('http://127.0.0.1:8001/noticias/'+dato+"/")
+	return response
