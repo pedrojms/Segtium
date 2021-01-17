@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from .controller import ListadoEmpresa, ListadoVendedor, ListadoServicio,ServiciosCon,BeneficiosCon,ListarNoticias,ElemInd,Delete,Add,InfoPerfil
 
 
-from django.shortcuts import render, render_to_response,redirect
+from django.shortcuts import render,redirect
 from django.template.context_processors import csrf 
 from .utility import * 
 from django.contrib.auth import login as auth_login 
